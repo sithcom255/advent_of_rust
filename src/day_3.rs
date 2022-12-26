@@ -1,3 +1,4 @@
+use std::array;
 use std::convert::From;
 use std::env;
 use std::fs;
@@ -5,28 +6,44 @@ use std::str::FromStr;
 
 pub fn advent_of_rust(file_path: &str) {
     let contents = fs::read_to_string(file_path).expect("This is the error message");
-    let rows = contents.split("\n");
+    let rows = contents.split("\n").collect::<Vec<&str>>();
     let mut result = 0;
-    rows.for_each(|elem| {
-        let first_half = &elem[0..elem.len() / 2];
-        let second_half = &elem[elem.len() / 2..];
+
+    let mut row_iter = rows.iter().peekable();
+
+    while row_iter.peek().is_some() {
+        let f = row_iter.next().unwrap();
+        let s = row_iter.next().unwrap();
+        let t = row_iter.next().unwrap();
+
         let mut root: Option<TreeNode<char>> = None;
-        first_half.chars().for_each(|c: char| {
+        let mut second_root: Option<TreeNode<char>> = None;
+        f.chars().for_each(|c: char| {
             if root.is_none() {
                 root = Some(TreeNode::new(c));
             } else {
                 root.as_mut().unwrap().add(c)
             }
         });
-        second_half.chars().find(|c: &char| {
-               if root.as_ref().unwrap().find(*c) {
-                result += get_prio(& c);
+        
+        s.chars()
+            .filter(|c: &char| root.as_ref().unwrap().find(*c))
+            .for_each(|c: char| {
+                if second_root.is_none() {
+                    second_root = Some(TreeNode::new(c));
+                } else {
+                    second_root.as_mut().unwrap().add(c)
+                }
+            });
+
+        t.chars().find(|c: &char| {
+            if second_root.as_ref().unwrap().find(*c) {
+                result += get_prio(&c);
                 return true;
             }
             return false;
         });
-
-    });
+    }
     println!("{}", result);
 }
 
