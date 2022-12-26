@@ -18,41 +18,41 @@ pub fn day_two(file_path: &str) {
 fn evaluate(other: Other, response: Response) -> u32 {
     let mut res = 0;
 
-    if response == Response::X {
-        res += 1;
-    } else if response == Response::Y {
-        res += 2;
-    } else {
-        res += 3;
-    }
-
     if other == Other::A {
-        if response == Response::X {
+        if response == Response::Y {
+            res += 1;
+        } else if response == Response::X {
             res += 3;
-        } else if response == Response::Y {
-            res += 6;
         } else if response == Response::Z {
-            res += 0;
+            res += 2;
         }
     }
     if other == Other::B {
-        if response == Response::X {
-            res += 0;
-        } else if response == Response::Y {
-            res += 3;
+        if response == Response::Y {
+            res += 2;
+        } else if response == Response::X {
+            res += 1;
         } else if response == Response::Z {
-            res += 6;
+            res += 3;
         }
     }
 
     if other == Other::C {
-        if response == Response::X {
-            res += 6;
-        } else if response == Response::Y {
-            res += 0;
-        } else if response == Response::Z {
+        if response == Response::Y {
             res += 3;
+        } else if response == Response::X {
+            res += 2;
+        } else if response == Response::Z {
+            res += 1;
         }
+    }
+
+    if response == Response::X {
+        res += 0;
+    } else if response == Response::Y {
+        res += 3;
+    } else {
+        res += 6;
     }
 
     return res;
@@ -102,5 +102,3 @@ impl FromStr for Other {
         }
     }
 }
-
-
