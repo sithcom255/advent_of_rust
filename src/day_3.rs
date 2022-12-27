@@ -1,8 +1,4 @@
-use std::array;
-use std::convert::From;
-use std::env;
 use std::fs;
-use std::str::FromStr;
 
 pub fn advent_of_rust(file_path: &str) {
     let contents = fs::read_to_string(file_path).expect("This is the error message");
@@ -25,7 +21,7 @@ pub fn advent_of_rust(file_path: &str) {
                 root.as_mut().unwrap().add(c)
             }
         });
-        
+
         s.chars()
             .filter(|c: &char| root.as_ref().unwrap().find(*c))
             .for_each(|c: char| {

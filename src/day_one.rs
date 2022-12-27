@@ -1,4 +1,3 @@
-use std::env;
 use std::fs;
 
 pub fn day_one(file_path: &str) {
