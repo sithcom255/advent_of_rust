@@ -19,6 +19,6 @@ pub fn advent_of_rust(file_path: &str) {
 }
 
 fn check_contains(first: &Vec<u32>, second: & Vec<u32>) -> bool {
-    first[0]<= second[0] && first[1] >= second[1] || 
-    first[0]< second[0] && first[1] >= second[1]
+    first[1] >= second[0] && first[1] <= second[1] ||
+    first[0] >= second[0] && first[0] <= second[1] 
 }
