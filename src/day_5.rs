@@ -35,9 +35,13 @@ pub fn advent_of_rust(file_path: &str) {
         let row = re.replace_all(rows[i], "")
         .replace("  ", " ").trim()
         .split(" ").map(|elem| {println!("{}", elem); elem}).map( |elem|elem.trim().parse::<u32>().unwrap()).collect::<Vec<u32>>();
-        for l in 0..row[0] {
-            let x = stacks[row[1] as usize - 1].remove(0);
-            stacks[row[2] as usize - 1].insert(0,x);
+        
+        let mut holder: Vec<char> = vec![];
+        for _ in 0..row[0] {
+            holder.push(stacks[row[1] as usize - 1].remove(0));
+        }
+        for _ in 0..row[0] {
+            stacks[row[2] as usize - 1].insert(0,holder.pop().unwrap());
         }
     }
     println!("{:?}", stacks);
