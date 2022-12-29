@@ -44,7 +44,6 @@ pub fn advent_of_rust(file_path: &str) {
             stacks[row[2] as usize - 1].insert(0,holder.pop().unwrap());
         }
     }
-    println!("{:?}", stacks);
 
     for stack in stacks {
         print!("{}", stack.first().get_or_insert(&' '))
