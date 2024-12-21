@@ -1,5 +1,7 @@
 use std::fs;
 
+mod two;
+
 pub fn advent_of_rust(file_path: &str) {
     let contents = fs::read_to_string(file_path).expect("This is the error message");
     let rows = contents.split("\n").collect::<Vec<&str>>();

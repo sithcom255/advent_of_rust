@@ -1,5 +1,5 @@
-mod day_6;
+mod four;
 
 fn main () {
-    day_6::advent_of_rust("/home/jan/Documents/advent_of_rust/src/input")
+    four::day_one::advent_of_rust("/home/jan/Documents/advent_of_rust/src/input")
 }
