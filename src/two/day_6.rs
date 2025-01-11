@@ -1,5 +1,5 @@
 use regex::Regex;
-use std::{fs, collections::HashSet};
+use std::{collections::HashSet, fs};
 
 pub fn advent_of_rust(file_path: &str) {
     let contents = fs::read_to_string(file_path)
