@@ -1,13 +1,14 @@
-use crate::four::day_16::advent_of_rust;
+use crate::twenty_four::day_16::advent_of_rust;
 
-mod four;
+mod twenty_four;
+mod solve;
 
 fn main() {
 
     if !check_res(advent_of_rust("/home/jan/Documents/advent_of_rust/src/test"), 11048, 64) {
         return;
     }
-    let res = advent_of_rust("/home/jan/Documents/advent_of_rust/src/input");
+    let res = advent_of_rust("/home/jan/Documents/advent_of_rust/src/day_25.txt");
     println!("{:?}", res);
 }
 

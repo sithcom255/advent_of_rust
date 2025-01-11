@@ -1,3 +1,3 @@
 pub mod main;
-pub(crate) mod four;
+pub(crate) mod twenty_four;
 pub(crate) mod two;
