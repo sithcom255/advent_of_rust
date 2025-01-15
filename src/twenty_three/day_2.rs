@@ -34,8 +34,6 @@ impl Solve for Solver {
         let map = parse(input);
         let mut p2 = 0;
 
-
-
         map.iter().for_each(|(key, value)| {
             let mut r_max = 0;
             let mut g_max = 0;
@@ -52,10 +50,7 @@ impl Solve for Solver {
                     g_max = rgb.g;
                 }
             });
-
-
-                p2 += r_max * g_max * b_max;
-
+            p2 += r_max * g_max * b_max;
         });
 
         p2.to_string()
