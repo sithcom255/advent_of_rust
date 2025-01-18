@@ -152,16 +152,3 @@ fn solve_2023_3() {
     let p2_res = Solver::p2(&contents);
     println!("2023_3 P2 {p2_res}");
 }
-
-
-#[test]
-fn test() {
-    let contents = fs::read_to_string("/home/jan/Documents/advent_of_rust/src/test")
-        .expect("This is the error message");
-
-    let p1_res = Solver::p1(&contents);
-    println!("2023_2 P1 {p1_res}");
-
-    let p2_res = Solver::p2(&contents);
-    println!("2023_2 P2 {p2_res}");
-}
