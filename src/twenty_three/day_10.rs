@@ -261,19 +261,6 @@ fn down(y_len: usize, x_len: usize, node: isize, adj: &mut HashSet<usize>) {
         adj.insert(down);
     }
 }
-
-#[test]
-fn test() {
-    let contents = fs::read_to_string("/home/jan/Documents/advent_of_rust/src/test")
-        .expect("This is the error message");
-
-    let p1_res = Solver::p1(&contents);
-    println!("2023_9 P1 {p1_res}");
-
-    let p2_res = Solver::p2(&contents);
-    println!("2023_9 P2 {p2_res}");
-}
-
 #[test]
 fn solve_2023_10() {
     let contents = fs::read_to_string("./resources/twenty_three/day_10.txt")
