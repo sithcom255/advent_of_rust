@@ -75,8 +75,6 @@ impl Solve for Solver {
                 };
             }
         }
-
-
         evaluate(&boxes).to_string()
     }
 }
@@ -106,18 +104,6 @@ fn step(ch: char, current: usize) -> usize {
     let ascii_value = ch as u8;
     let i = ((current + ascii_value as usize) * 17) % 256;
     i
-}
-
-#[test]
-fn test() {
-    let contents = fs::read_to_string("/home/jan/Documents/advent_of_rust/src/test")
-        .expect("This is the error message");
-
-    let p1_res = Solver::p1(&contents);
-    println!("2023_12 P1 {p1_res}");
-
-    let p2_res = Solver::p2(&contents);
-    println!("2023_12 P2 {p2_res}");
 }
 
 #[test]
