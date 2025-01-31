@@ -151,18 +151,6 @@ fn parse(input: &String) -> Vec<Vec<char>> {
 }
 
 #[test]
-fn test() {
-    let contents = fs::read_to_string("/home/jan/Documents/advent_of_rust/src/test")
-        .expect("This is the error message");
-
-    let p1_res = Solver::p1(&contents);
-    println!("2023_12 P1 {p1_res}");
-
-    let p2_res = Solver::p2(&contents);
-    println!("2023_12 P2 {p2_res}");
-}
-
-#[test]
 fn solve_2023_16() {
     let contents = fs::read_to_string("./resources/twenty_three/day_16.txt")
         .expect("This is the error message");
