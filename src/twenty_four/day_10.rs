@@ -203,7 +203,7 @@ pub fn solve_from_p1<'a>(
     return &memo[y_safe][x_safe];
 }
 
-pub fn bound_check(y: isize, x: isize, y_len: usize, x_len: usize) -> bool {
+fn bound_check(y: isize, x: isize, y_len: usize, x_len: usize) -> bool {
     (0 <= y && y < y_len as isize) && (0 <= x && x < x_len as isize)
 }
 

@@ -1,5 +1,5 @@
 use crate::solve::Solve;
-use crate::twenty_four::day_10::bound_check;
+use crate::utils::grid::bound_check;
 use std::fs;
 use std::str::Split;
 
@@ -54,7 +54,7 @@ impl Solve for Solver {
             for x in 0..x_len {
                 let ch = row[x];
                 if ch == '*' {
-                    p2+= has_two_adjacent(&rows, y_len, x_len, y, x);
+                    p2 += has_two_adjacent(&rows, y_len, x_len, y, x);
                 }
             }
         }
@@ -79,9 +79,8 @@ fn has_two_adjacent(
             if bound_check(y_t, x_t, y_len, x_len) {
                 let ch = rows[y_t as usize][x_t as usize];
                 if ch.is_digit(10) && !visited[y_t as usize][x_t as usize] {
-
                     let row = &rows[y_t as usize];
-                    let mut start = x_t ;
+                    let mut start = x_t;
 
                     while start >= 0 && row[start as usize].is_digit(10) {
                         start -= 1;

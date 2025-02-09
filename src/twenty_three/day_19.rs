@@ -368,8 +368,6 @@ impl RangePart {
     }
 }
 
-
-
 #[test]
 fn solve_2023_19() {
     let contents = fs::read_to_string("./resources/twenty_three/day_19.txt")

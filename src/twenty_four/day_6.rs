@@ -1,8 +1,7 @@
 use std::collections::HashMap;
 use std::fs;
 
-pub fn advent_of_rust(file_path: &str) {
-    let contents = fs::read_to_string(file_path).expect("This is the error message");
+pub fn advent_of_rust(contents: &str) {
     let mut lines: Vec<&str> = contents.split("\n").collect();
     let mut p1_res = 1;
     let mut p2_res = 0;
@@ -60,11 +59,11 @@ pub fn advent_of_rust(file_path: &str) {
         visited_dir.push(vis);
     }
 
-    while ( x_pos < x_len) && ( y_pos < y_len) {
+    while (x_pos < x_len) && (y_pos < y_len) {
         let mut next_pos_x = (x_pos as isize + x_inc) as usize;
         let mut next_pos_y = (y_pos as isize + y_inc) as usize;
 
-        if !((next_pos_x < x_len) && ( next_pos_y < y_len)) {
+        if !((next_pos_x < x_len) && (next_pos_y < y_len)) {
             break;
         }
 
@@ -88,7 +87,7 @@ pub fn advent_of_rust(file_path: &str) {
             x_pos = x_start;
             y_pos = y_start;
             x_inc = 0;
-            y_inc= -1;
+            y_inc = -1;
 
             if x == x_start && y == y_start {
                 continue;
@@ -104,13 +103,11 @@ pub fn advent_of_rust(file_path: &str) {
 
             obstacles[y][x] = true;
 
-            while ( x_pos < x_len) && ( y_pos < y_len) {
+            while (x_pos < x_len) && (y_pos < y_len) {
                 let mut next_pos_x = (x_pos as isize + x_inc) as usize;
                 let mut next_pos_y = (y_pos as isize + y_inc) as usize;
 
-                if !(( next_pos_x < x_len)
-                    && ( next_pos_y < y_len))
-                {
+                if !((next_pos_x < x_len) && (next_pos_y < y_len)) {
                     break;
                 }
 
@@ -172,4 +169,11 @@ fn get_key(x_inc: &mut isize, y_inc: &mut isize) -> usize {
         return 3;
     }
     return 5;
+}
+
+fn solve_2024_6() {
+    let contents = fs::read_to_string("./resources/twenty_four/day_6.txt")
+        .expect("This is the error message");
+
+    advent_of_rust(&contents);
 }

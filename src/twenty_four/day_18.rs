@@ -1,4 +1,4 @@
-use crate::twenty_four::day_10::bound_check;
+use crate::utils::grid::bound_check;
 use std::cmp::Ordering;
 use std::collections::BinaryHeap;
 use std::fs;
